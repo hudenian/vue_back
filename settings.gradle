@@ -1,0 +1,7 @@
+rootProject.name = 'vueback'
+include 'api'
+include 'service'
+include 'common'
+include 'mapper'
+include 'elasticsearch'
+
