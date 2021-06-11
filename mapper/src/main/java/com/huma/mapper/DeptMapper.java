@@ -1,19 +1,11 @@
 package com.huma.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.huma.mapper.domain.Dept;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public interface DeptMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(Dept record);
-
-    int insertSelective(Dept record);
-
-    Dept selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Dept record);
-
-    int updateByPrimaryKey(Dept record);
+/**
+ * @author hudenian
+ * @date 2021/6/11
+ */
+public interface DeptMapper extends BaseMapper<Dept> {
 }

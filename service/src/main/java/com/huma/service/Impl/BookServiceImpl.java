@@ -1,4 +1,4 @@
-package com.huma.serviceImpl;
+package com.huma.service.Impl;
 
 import com.huma.dto.BookDto;
 import com.huma.dto.PageDto;

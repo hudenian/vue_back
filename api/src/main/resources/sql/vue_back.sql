@@ -42,7 +42,7 @@ CREATE TABLE `t_permission` (
   `name` varchar(20) NOT NULL COMMENT '权限名称',
   `url` varchar(100) DEFAULT NULL COMMENT 'URL',
   `perms` varchar(512) DEFAULT NULL COMMENT '权限标识',
-  `type` varchar(20) NOT NULL COMMENT '菜单权限类型: 1-目录, 2-菜单, 3-按钮',
+  `type` tinyint(1) NOT NULL COMMENT '菜单权限类型: 1-目录, 2-菜单, 3-按钮',
   `icon` varchar(30) DEFAULT NULL COMMENT '菜单图标',
   `seq_no` bigint(20) DEFAULT NULL COMMENT '序号',
   `status` tinyint(1) DEFAULT '0' COMMENT '状态 0锁定 1有效',

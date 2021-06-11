@@ -1,17 +1,11 @@
 package com.huma.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.huma.mapper.domain.Permission;
 
-public interface PermissionMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(Permission record);
-
-    int insertSelective(Permission record);
-
-    Permission selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Permission record);
-
-    int updateByPrimaryKey(Permission record);
+/**
+ * @author hudenian
+ * @date 2021/6/11
+ */
+public interface PermissionMapper extends BaseMapper<Permission> {
 }

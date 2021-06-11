@@ -1,17 +1,12 @@
 package com.huma.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.huma.mapper.domain.User;
 
-public interface UserMapper {
-    int deleteByPrimaryKey(Long id);
+/**
+ * @author hudenian
+ * @date 2021/6/11
+ */
+public interface UserMapper extends BaseMapper<User> {
 
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    User selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
 }

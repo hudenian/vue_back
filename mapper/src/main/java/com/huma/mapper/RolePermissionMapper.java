@@ -1,17 +1,11 @@
 package com.huma.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.huma.mapper.domain.RolePermission;
 
-public interface RolePermissionMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(RolePermission record);
-
-    int insertSelective(RolePermission record);
-
-    RolePermission selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(RolePermission record);
-
-    int updateByPrimaryKey(RolePermission record);
+/**
+ * @author hudenian
+ * @date 2021/6/11
+ */
+public interface RolePermissionMapper extends BaseMapper<RolePermission> {
 }

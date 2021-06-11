@@ -1,17 +1,11 @@
 package com.huma.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.huma.mapper.domain.UserRole;
 
-public interface UserRoleMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(UserRole record);
-
-    int insertSelective(UserRole record);
-
-    UserRole selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(UserRole record);
-
-    int updateByPrimaryKey(UserRole record);
+/**
+ * @author hudenian
+ * @date 2021/6/11
+ */
+public interface UserRoleMapper extends BaseMapper<UserRole> {
 }
