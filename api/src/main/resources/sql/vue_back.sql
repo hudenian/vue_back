@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2021-06-08 18:43:38
+Date: 2021-06-14 21:41:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,6 +54,15 @@ CREATE TABLE `t_permission` (
 -- ----------------------------
 -- Records of t_permission
 -- ----------------------------
+INSERT INTO `t_permission` VALUES ('1', '3', 'SQL 监控', '/druid/sql.html', '', '2', '', '102', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
+INSERT INTO `t_permission` VALUES ('2', '0', '组织管理', 'xx.html', '', '1', '', '100', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
+INSERT INTO `t_permission` VALUES ('3', '0', '系统管理', 'xx.html', '', '1', '', '102', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
+INSERT INTO `t_permission` VALUES ('4', '3', '接口管理', '/swagger-ui.html', '', '2', '', '100', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
+INSERT INTO `t_permission` VALUES ('5', '3', '日志管理', '/index/logs', '', '2', '', '100', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
+INSERT INTO `t_permission` VALUES ('6', '2', '菜单权限管理', '/index/menus', '', '2', '', '102', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
+INSERT INTO `t_permission` VALUES ('7', '2', '用户管理', '/index/users', '', '2', '', '100', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
+INSERT INTO `t_permission` VALUES ('8', '2', '部门管理', '/index/depts', '', '2', '', '100', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
+INSERT INTO `t_permission` VALUES ('9', '2', '角色管理', '/index/roles', '', '2', '', '99', '1', '2021-06-13 15:29:08', '2021-06-13 15:29:08');
 
 -- ----------------------------
 -- Table structure for `t_role`
