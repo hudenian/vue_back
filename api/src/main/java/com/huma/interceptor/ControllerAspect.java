@@ -1,7 +1,7 @@
 package com.huma.interceptor;
 
-import com.huma.enums.RespCodeEnum;
-import com.huma.exception.BusinessException;
+import com.huma.common.enums.RespCodeEnum;
+import com.huma.common.exception.BusinessException;
 import com.huma.vo.ResponseVo;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;

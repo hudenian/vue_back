@@ -2,6 +2,10 @@ package com.huma.mapper.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -9,10 +13,12 @@ import lombok.Data;
  * @author 
  */
 @Data
+@TableName(value = "t_permission")
 public class Permission implements Serializable {
     /**
      * 权限ID
      */
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -38,7 +44,7 @@ public class Permission implements Serializable {
     /**
      * 菜单权限类型: 1-目录, 2-菜单, 3-按钮
      */
-    private String type;
+    private Byte type;
 
     /**
      * 菜单图标

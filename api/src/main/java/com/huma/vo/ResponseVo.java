@@ -1,7 +1,7 @@
 package com.huma.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.huma.enums.RespCodeEnum;
+import com.huma.common.enums.RespCodeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

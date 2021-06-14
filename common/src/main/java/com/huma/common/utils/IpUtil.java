@@ -1,4 +1,4 @@
-package com.huma.utils;
+package com.huma.common.utils;
 
 import org.springframework.util.StringUtils;
 

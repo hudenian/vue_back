@@ -2,6 +2,10 @@ package com.huma.mapper.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -9,10 +13,12 @@ import lombok.Data;
  * @author
  */
 @Data
+@TableName(value = "t_dept")
 public class Dept implements Serializable {
     /**
      * 部门ID
      */
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**

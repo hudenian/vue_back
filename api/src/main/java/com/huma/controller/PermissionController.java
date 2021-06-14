@@ -7,6 +7,7 @@ import com.huma.vo.ResponseVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,8 +44,19 @@ public class PermissionController {
             p.setType(permissionDto.getType());
             p.setIcon(permissionDto.getIcon());
             p.setSeqNo(permissionDto.getSeqNo());
+            p.setChildren(dtoToVo(permissionDto.getChildren()));
             permissionVoList.add(p);
         });
         return ResponseVo.createSuccess(permissionVoList);
+    }
+
+    private List<PermissionVo> dtoToVo(List<PermissionDto> permissionDtoList) {
+        List<PermissionVo> permissionVoList = new ArrayList<>();
+        permissionDtoList.forEach(dto -> {
+            PermissionVo permissionVo = new PermissionVo();
+            BeanUtils.copyProperties(dto, permissionVo);
+            permissionVoList.add(permissionVo);
+        });
+        return permissionVoList;
     }
 }

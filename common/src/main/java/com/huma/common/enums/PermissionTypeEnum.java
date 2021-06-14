@@ -1,4 +1,4 @@
-package com.huma.enums;
+package com.huma.common.enums;
 
 /**
  * @author huma

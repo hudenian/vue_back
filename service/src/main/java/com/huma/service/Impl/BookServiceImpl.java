@@ -5,7 +5,7 @@ import com.huma.dto.PageDto;
 import com.huma.elasticsearchDomain.Book;
 import com.huma.elasticsearchRepository.BookRepository;
 import com.huma.service.BookService;
-import com.huma.utils.BeanCopyUtil;
+import com.huma.common.utils.BeanCopyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;

@@ -3,6 +3,7 @@ package com.huma.dto;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author hudenian
@@ -65,4 +66,9 @@ public class PermissionDto {
      * 修改时间
      */
     private Date updateTime;
+
+    /**
+     * 子菜单
+     */
+    private List<PermissionDto> children;
 }

@@ -1,6 +1,6 @@
-package com.huma.exception;
+package com.huma.common.exception;
 
-import com.huma.enums.RespCodeEnum;
+import com.huma.common.enums.RespCodeEnum;
 
 /**
  * @author Oliver
