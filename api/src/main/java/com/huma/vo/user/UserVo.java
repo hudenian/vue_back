@@ -20,10 +20,13 @@ public class UserVo {
     private Long id;
 
     @ApiModelProperty("手机号码")
-    private String mobile;
+    private String name;
 
     @ApiModelProperty("注册时间")
     @JsonFormat(pattern = SysConstant.DEFAULT_TIME_PATTERN, timezone = SysConstant.DEFAULT_TIMEZONE)
     private Date createTime;
+
+    @ApiModelProperty("用户登录token")
+    private String token;
 
 }

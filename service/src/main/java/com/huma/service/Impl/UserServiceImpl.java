@@ -12,12 +12,15 @@ import com.huma.common.utils.EncryptUtil;
 import com.huma.dto.UserDto;
 import com.huma.mapper.UserMapper;
 import com.huma.mapper.domain.User;
+import com.huma.service.ITokenService;
 import com.huma.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author hudenian
@@ -26,11 +29,21 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+
+    @Resource
+    private ITokenService tokenService;
+
     @Override
     public UserDto login(UserDto userDto) {
 
         User user = getUser(userDto.getName());
+        if(!EncryptUtil.verifyPassword(userDto.getPassword(),user.getPassword(),user.getSalt())){
+            log.error("User login user name or password error!");
+            throw new BusinessException(RespCodeEnum.BIZ_FAILED, ErrorMsgZhCn.USER_OR_PASSWORD_ERROR, ErrorMsgEnUs.USER_OR_PASSWORD_ERROR);
+        }
+
         BeanUtils.copyProperties(user, userDto);
+        userDto.setToken(tokenService.setToken(userDto));
         return userDto;
     }
 

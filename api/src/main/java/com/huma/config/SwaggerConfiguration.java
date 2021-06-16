@@ -74,12 +74,12 @@ public class SwaggerConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 // 页面标题
-                .title("elasticsearch接口文档")
+                .title("vue_back接口文档")
                 // 创建人信息
                 .contact(new Contact("hudenian", "", "huma@163.com"))
                 // 版本号
                 .version("1.0.0")
                 // 描述
-                .description("本文档主要提供vueback后台的接口功能，用于描述清楚调用方需要传递的参数信息及响应的数据。").build();
+                .description("本文档主要提供vue后台的接口功能，用于描述清楚调用方需要传递的参数信息及响应的数据。").build();
     }
 }

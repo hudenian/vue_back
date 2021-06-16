@@ -16,9 +16,9 @@ import javax.validation.constraints.Size;
 @ApiModel
 public class LoginReq {
 
-    @ApiModelProperty(value = "用户名", required = true, name = "userName", example = "hudenian")
+    @ApiModelProperty(value = "用户名", required = true, name = "name", example = "hudenian")
     @NotBlank(message = "{user.name.notBlank}")
-    private String userName;
+    private String name;
 
     @ApiModelProperty(value = "密码", required = true, name = "password", example = "423424324242")
     @NotBlank(message = "{user.password.notBlank}")

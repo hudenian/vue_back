@@ -92,7 +92,7 @@ public class EncryptUtil {
     public static void main(String[] args) throws UnsupportedEncodingException {
 //		String initPassword = "123456";
         String initPassword = "123456";
-        String loginName = "hudenian";
+        String loginName = "hushiwu";
         String stored = EncryptUtil.encodePassword(initPassword, loginName, "9e1bb7355e7afa47768e32611fbc1f13f6c44dd797250844");
         //原始保存的密码：126d7ac74295c7c892087010d35b438d
         //"123456" -stored:87cce9c8bc7eea015d594e5d3e5c8dba

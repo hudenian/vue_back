@@ -120,6 +120,19 @@ CREATE TABLE `t_user` (
   UNIQUE KEY `UK_USER_NAME` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
+INSERT INTO `t_user` VALUES ('1', 'hudenian', '1f5867546e3cb94c9b2198570cba447b', '78a8b04a010159a3c930092196bf4ffdba20cef39ce953fb', null, null, null, null, null, '1', '2021-06-16 23:35:24', '2021-06-16 23:35:24');
+INSERT INTO `t_user` VALUES ('2', 'hdn', 'e0202aa970c8bd89c8487d5b13ea7477', '9f4b75dab420320ae9b8251ba0a139aa92c073abca2f4927', null, null, null, null, null, '1', '2021-06-16 23:36:39', '2021-06-16 23:36:39');
+INSERT INTO `t_user` VALUES ('3', 'zhangsan', '2b7b9820f13129f1622f682e8a8016d9', '224dcb520a34e466b7c3c0162747258551a8c1ad61be3645', null, null, null, null, null, '1', '2021-06-16 23:37:18', '2021-06-16 23:37:18');
+INSERT INTO `t_user` VALUES ('4', 'lishi', 'da828e2fecd1adc5ae13e1dcddeb1d74', '87884720f645d5e86eddb293f1876bf62298eb434a6f30a5', null, null, null, null, null, '1', '2021-06-16 23:37:38', '2021-06-16 23:37:38');
+INSERT INTO `t_user` VALUES ('5', 'wangwu', '98af159bea58faaf5dc13eaeccd061e6', '2de5ea58914aa292dd2d584e8ad3d019abe52c778453ebf4', null, null, null, null, null, '1', '2021-06-16 23:37:57', '2021-06-16 23:37:57');
+INSERT INTO `t_user` VALUES ('6', 'zhaoliu', '1b396c2420a69db93b403a48957af1ab', '2cb7311288fadda0dd419456446bc66f26ce9a999d07598e', null, null, null, null, null, '1', '2021-06-16 23:38:19', '2021-06-16 23:38:19');
+INSERT INTO `t_user` VALUES ('7', 'sunqi', 'de51fe899393eaee2425c10c27c2eac0', '687f814b2942562770e605f7a95a571aaa11b7bf4886e2bc', null, null, null, null, null, '1', '2021-06-16 23:38:38', '2021-06-16 23:38:38');
+INSERT INTO `t_user` VALUES ('8', 'zhuba', 'a15fd5a17ff1d4c83608263e7f26560a', '2c4cc256b32cfa06e8732d2ae0f081ead474e4c72e48cc6d', null, null, null, null, null, '1', '2021-06-16 23:39:01', '2021-06-16 23:39:01');
+INSERT INTO `t_user` VALUES ('9', 'chener', '87f9704aaf7c5cdcb386d1f4b6cda0fc', 'a76a908331f437a4ff822401d95ad24fd87caf390edbe35c', null, null, null, null, null, '1', '2021-06-16 23:39:33', '2021-06-16 23:39:33');
+INSERT INTO `t_user` VALUES ('10', 'wangyi', '01a764eddb6dfcaa7c9540796c45b69d', 'c0d8ee270c10f9f03467fb43aadcb72c91bdd09b10090df9', null, null, null, null, null, '1', '2021-06-16 23:39:53', '2021-06-16 23:39:53');
+INSERT INTO `t_user` VALUES ('11', 'hushiwu', '9782e046b9d2295f7576f77c4ba48aec', '74cded42108d8f6d90f900d3f5b9d97e7f55aa7870388d3c', null, null, null, null, null, '1', '2021-06-16 23:40:16', '2021-06-16 23:40:16');
+
+
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
