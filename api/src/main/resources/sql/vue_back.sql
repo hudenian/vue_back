@@ -105,7 +105,7 @@ CREATE TABLE `t_role_permission` (
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `name` varchar(50) NOT NULL COMMENT '用户名',
   `password` varchar(100) NOT NULL COMMENT '密码',
   `salt` varchar(100) NOT NULL COMMENT '盐值',
   `dept_id` bigint(20) NOT NULL COMMENT '部门ID',

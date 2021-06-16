@@ -36,7 +36,7 @@ public class IpUtil {
             ip = request.getRemoteAddr();
         }
 
-        if (!StringUtils.hasText(ip) && ip.indexOf(IP_UTILS_FLAG) > 0) {
+        if (!StringUtils.hasText(ip) && null != ip && ip.indexOf(IP_UTILS_FLAG) > 0) {
             ip = ip.substring(0, ip.indexOf(IP_UTILS_FLAG));
         }
         return ip;

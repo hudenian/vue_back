@@ -70,4 +70,17 @@ public class UserDto {
      * 修改时间
      */
     private Date updateTime;
+
+    /**
+     * 用户登录token
+     */
+    private String token;
+    /**
+     * 用户角色数组
+     */
+    private String[] roles;
+    /**
+     * 用户权限数组
+     */
+    private String[] permissions;
 }

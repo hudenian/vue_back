@@ -39,7 +39,7 @@ public class ControllerAdvice {
     public <T> ResponseVo<T> bizExceptionHandler(HttpServletRequest request, BusinessException e) {
         log.warn("A biz exception occurred on the request. Error message: " + e.getMsg());
 
-        return ResponseVo.create(e.getCode(), e.getMsg());
+        return ResponseVo.create(e.getCode(), e.getMsg(),e.getMsg());
     }
 
     /**
@@ -64,7 +64,7 @@ public class ControllerAdvice {
             errMsg = e.getBindingResult().getFieldError().getDefaultMessage();
         }
         return ResponseVo.create(RespCodeEnum.PARAM_TYPE_ERROR.getCode(),
-            errMsg == null ? RespCodeEnum.PARAM_TYPE_ERROR.getMsg() : errMsg);
+            errMsg == null ? RespCodeEnum.PARAM_TYPE_ERROR.getMsg() : errMsg,errMsg == null ? RespCodeEnum.PARAM_TYPE_ERROR.getMsgEnglish():errMsg);
     }
 
     /**
@@ -101,7 +101,7 @@ public class ControllerAdvice {
             errMsg = e.getBindingResult().getFieldError().getDefaultMessage();
         }
         return ResponseVo.create(RespCodeEnum.PARAM_ERROR.getCode(),
-            errMsg == null ? RespCodeEnum.PARAM_ERROR.getMsg() : errMsg);
+            errMsg == null ? RespCodeEnum.PARAM_ERROR.getMsg() : errMsg,errMsg == null ? RespCodeEnum.PARAM_ERROR.getMsgEnglish() : errMsg);
     }
 
     static final String FILE_SIZE_OUT_LIMIT = "上传文件大小超出限制!";
@@ -114,6 +114,6 @@ public class ControllerAdvice {
                                                                     MaxUploadSizeExceededException e) {
         log.warn("File size out of limit.", e);
         return ResponseVo.create(RespCodeEnum.PARAM_ERROR.getCode(),
-            RespCodeEnum.PARAM_ERROR.getMsg() + FILE_SIZE_OUT_LIMIT);
+            RespCodeEnum.PARAM_ERROR.getMsg() + FILE_SIZE_OUT_LIMIT,RespCodeEnum.PARAM_ERROR.getMsgEnglish() + FILE_SIZE_OUT_LIMIT);
     }
 }

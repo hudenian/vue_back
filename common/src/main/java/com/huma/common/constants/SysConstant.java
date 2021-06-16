@@ -12,6 +12,11 @@ public class SysConstant {
     public static final String HEADER_TOKEN_KEY = "Access-Token";
 
     /**
+     * 请求头 国际化 language key值
+     */
+    public static final String HEADER_LANGUAGE_KEY = "Accept-Language";
+
+    /**
      * redis数据库 key值 用户前缀
      */
     public static final String REDIS_USER_PREFIX_KEY = "User:";
@@ -39,7 +44,11 @@ public class SysConstant {
     public static final String DEFAULT_TIMEZONE = "GMT+8";
 
     /**
-     * 图片类型前缀
+     * 国际化中文
      */
-    public static final String IMAGE_FILE_TYPE_PREFIX = "image";
+    public static final String ZH_CN= "zh-CN";
+    /**
+     * 国际化英文
+     */
+    public static final String EN_US= "en-US";
 }

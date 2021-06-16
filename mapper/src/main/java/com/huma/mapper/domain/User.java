@@ -1,82 +1,71 @@
 package com.huma.mapper.domain;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * t_user
- * @author 
+ *
+ * @author hudenian
  */
 @Data
 @TableName(value = "t_user")
 public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 用户ID
      */
     @TableId(type = IdType.AUTO)
     private Long id;
-
     /**
      * 用户名
      */
-    private String userName;
-
+    private String name;
     /**
      * 密码
      */
     private String password;
-
     /**
      * 盐值
      */
     private String salt;
-
     /**
      * 部门ID
      */
     private Long deptId;
-
     /**
      * 头像
      */
     private String avatar;
-
     /**
      * 手机
      */
     private String phone;
-
     /**
      * 性别 0男 1女
      */
     private String sex;
-
     /**
      * 描述
      */
     private String description;
-
     /**
      * 状态 0锁定 1有效
      */
     private Boolean status;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 修改时间
      */
     private Date updateTime;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -91,17 +80,17 @@ public class User implements Serializable {
         }
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
-            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-            && (this.getSalt() == null ? other.getSalt() == null : this.getSalt().equals(other.getSalt()))
-            && (this.getDeptId() == null ? other.getDeptId() == null : this.getDeptId().equals(other.getDeptId()))
-            && (this.getAvatar() == null ? other.getAvatar() == null : this.getAvatar().equals(other.getAvatar()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+                && (this.getSalt() == null ? other.getSalt() == null : this.getSalt().equals(other.getSalt()))
+                && (this.getDeptId() == null ? other.getDeptId() == null : this.getDeptId().equals(other.getDeptId()))
+                && (this.getAvatar() == null ? other.getAvatar() == null : this.getAvatar().equals(other.getAvatar()))
+                && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+                && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
+                && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
 
     @Override
@@ -109,7 +98,7 @@ public class User implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getSalt() == null) ? 0 : getSalt().hashCode());
         result = prime * result + ((getDeptId() == null) ? 0 : getDeptId().hashCode());
@@ -130,7 +119,7 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", username=").append(userName);
+        sb.append(", username=").append(name);
         sb.append(", password=").append(password);
         sb.append(", salt=").append(salt);
         sb.append(", deptId=").append(deptId);

@@ -1,10 +1,12 @@
 package com.huma.common.exception;
 
+import com.huma.common.constants.SysConstant;
 import com.huma.common.enums.RespCodeEnum;
+import com.huma.common.utils.LanguageContext;
 
 /**
- * @author Oliver
- * @date 2021/4/9
+ * @author hudenian
+ * @date 2021/6/11
  */
 public class BusinessException extends RuntimeException {
     private int code;
@@ -20,10 +22,22 @@ public class BusinessException extends RuntimeException {
         this.msg = msg;
     }
 
+    public BusinessException(int code, String msg, String msgEnglish) {
+        super(msg);
+        this.code = code;
+        this.msg = SysConstant.EN_US.equals(LanguageContext.get()) ? msgEnglish : msg;
+    }
+
     public BusinessException(RespCodeEnum responseEnum) {
         super(responseEnum.getMsg());
         this.code = responseEnum.getCode();
-        this.msg = responseEnum.getMsg();
+        this.msg = SysConstant.EN_US.equals(LanguageContext.get()) ? responseEnum.getMsg() : responseEnum.getMsgEnglish();
+    }
+
+    public BusinessException(RespCodeEnum responseEnum, String msg, String msgEnglish) {
+        super(msg);
+        this.code = responseEnum.getCode();
+        this.msg = SysConstant.EN_US.equals(LanguageContext.get()) ? msgEnglish : msg;
     }
 
     public BusinessException(RespCodeEnum responseEnum, String msg) {
@@ -36,15 +50,8 @@ public class BusinessException extends RuntimeException {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public String getMsg() {
         return msg;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
 }

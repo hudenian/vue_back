@@ -1,7 +1,9 @@
 package com.huma.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.huma.common.constants.SysConstant;
 import com.huma.common.enums.RespCodeEnum;
+import com.huma.common.utils.LanguageContext;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -23,22 +25,22 @@ public class ResponseVo<T> {
     @ApiModelProperty(value = "返回结果")
     private T data;
 
-    private ResponseVo(int code, String msg) {
+    private ResponseVo(int code, String msg, String msgEnglish) {
         this.code = code;
-        this.msg = msg;
+        this.msg = SysConstant.EN_US.equals(LanguageContext.get()) ? msgEnglish : msg;
     }
 
-    private ResponseVo(int code, String msg, T data) {
-        this(code, msg);
+    private ResponseVo(int code, String msg, String msgEnglish, T data) {
+        this(code, msg, msgEnglish);
         this.data = data;
     }
 
     private ResponseVo(RespCodeEnum respCodeEnum) {
-        this(respCodeEnum.getCode(), respCodeEnum.getMsg());
+        this(respCodeEnum.getCode(), respCodeEnum.getMsg(), respCodeEnum.getMsgEnglish());
     }
 
     private ResponseVo(RespCodeEnum respCodeEnum, T data) {
-        this(respCodeEnum.getCode(), respCodeEnum.getMsg(), data);
+        this(respCodeEnum.getCode(), respCodeEnum.getMsg(), respCodeEnum.getMsgEnglish(), data);
     }
 
     public static <T> ResponseVo<T> createSuccess() {
@@ -53,8 +55,8 @@ public class ResponseVo<T> {
         return new ResponseVo<>(respCodeEnum);
     }
 
-    public static <T> ResponseVo<T> create(int code, String msg) {
-        return new ResponseVo<>(code, msg);
+    public static <T> ResponseVo<T> create(int code, String msg, String msgEnglish) {
+        return new ResponseVo<>(code, msg, msgEnglish);
     }
 
     public T getData() {

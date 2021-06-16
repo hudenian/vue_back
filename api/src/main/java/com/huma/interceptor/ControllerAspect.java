@@ -60,7 +60,7 @@ public class ControllerAspect {
         } catch (BusinessException e) {
             log.warn("A biz exception occurred on the request. Error message: " + e.getMsg());
 
-            returnObj = ResponseVo.create(e.getCode(), e.getMsg());
+            returnObj = ResponseVo.create(e.getCode(), e.getMsg(),e.getMsg());
         } catch (Throwable e) {
             log.error("An exception occurred on the request.", e);
 
