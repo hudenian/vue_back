@@ -2,6 +2,7 @@ package com.huma.dto;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,9 @@ import java.util.Date;
  * @date 2021/6/11
  */
 @Data
-public class UserDto {
+public class UserDto implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 用户ID
