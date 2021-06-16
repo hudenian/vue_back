@@ -1,8 +1,11 @@
 package com.huma.config;
 
+import com.github.xiaoymin.knife4j.spring.extension.OpenApiExtensionResolver;
 import com.huma.common.constants.SysConstant;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -34,12 +37,12 @@ public class SwaggerConfiguration {
     static final String TOKEN_PARAM_TYPE = "header";
     static final String LANGUAGE_PARAM_TYPE = "header";
 
-   /* private final OpenApiExtensionResolver openApiExtensionResolver;
+    private final OpenApiExtensionResolver openApiExtensionResolver;
 
     @Autowired
     public SwaggerConfiguration(OpenApiExtensionResolver openApiExtensionResolver) {
         this.openApiExtensionResolver = openApiExtensionResolver;
-    }*/
+    }
 
     @Bean(value = "defaultApi2")
     public Docket defaultApi2() {
@@ -64,7 +67,8 @@ public class SwaggerConfiguration {
                 .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))
                 // path
                 .paths(PathSelectors.any()).build()
-                .globalOperationParameters(pars);
+                // 赋予插件体系
+                .extensions(openApiExtensionResolver.buildExtensions(GROUP_NAME)).globalOperationParameters(pars);
     }
 
     private ApiInfo apiInfo() {
