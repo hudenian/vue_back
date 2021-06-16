@@ -11,4 +11,5 @@ dependencies {
     api group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
     api 'org.springframework.boot:spring-boot-starter-data-redis'
     api 'org.apache.commons:commons-pool2'
+    api group: 'commons-codec', name: 'commons-codec', version: '1.15'
 }

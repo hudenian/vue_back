@@ -3,21 +3,20 @@
 <mapper namespace="com.huma.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.huma.mapper.domain.User">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="userName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="salt" jdbcType="VARCHAR" property="salt" />
     <result column="dept_id" jdbcType="BIGINT" property="deptId" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="sex" jdbcType="TINYINT" property="sex" />
     <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="status" jdbcType="TINYINT" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, `password`, salt, dept_id, avatar, phone, sex, description, `status`,
+    id, `name`, `password`, salt, dept_id, avatar, phone, sex, description, `status`, 
     create_time, update_time
   </sql>
-
 </mapper>

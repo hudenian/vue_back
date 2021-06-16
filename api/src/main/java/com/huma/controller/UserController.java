@@ -1,8 +1,8 @@
 package com.huma.controller;
 
-import com.huma.common.utils.LanguageContext;
 import com.huma.dto.UserDto;
 import com.huma.req.user.LoginReq;
+import com.huma.req.user.RegisterReq;
 import com.huma.service.IUserService;
 import com.huma.vo.ResponseVo;
 import com.huma.vo.user.UserVo;
@@ -32,11 +32,18 @@ public class UserController {
     @Resource
     private IUserService userService;
 
+    @PostMapping("register")
+    @ApiOperation(value = "用户注册", notes = "用户注册")
+    public ResponseVo<?> register(@RequestBody @Valid RegisterReq registerReq) {
+        UserDto userDto = new UserDto();
+        BeanUtils.copyProperties(registerReq, userDto);
+        userService.register(userDto);
+        return ResponseVo.createSuccess();
+    }
+
     @PostMapping("login")
     @ApiOperation(value = "用户登录", notes = "用户登录")
     public ResponseVo<UserVo> login(@RequestBody @Valid LoginReq loginReq) {
-        String language = LanguageContext.get();
-        System.out.println("当前语言版本为："+language);
         UserDto userDto = new UserDto();
         BeanUtils.copyProperties(loginReq, userDto);
         userDto = userService.login(userDto);

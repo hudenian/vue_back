@@ -1,6 +1,7 @@
 package com.huma.mapper.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -49,7 +50,7 @@ public class User implements Serializable {
     /**
      * 性别 0男 1女
      */
-    private String sex;
+    private Byte sex;
     /**
      * 描述
      */
@@ -57,7 +58,8 @@ public class User implements Serializable {
     /**
      * 状态 0锁定 1有效
      */
-    private Boolean status;
+    @TableField(value = "`status`")
+    private Byte status;
     /**
      * 创建时间
      */
@@ -119,7 +121,7 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", username=").append(name);
+        sb.append(", name=").append(name);
         sb.append(", password=").append(password);
         sb.append(", salt=").append(salt);
         sb.append(", deptId=").append(deptId);

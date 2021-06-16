@@ -17,4 +17,10 @@ public interface IUserService extends IService<User> {
      * @return UserDto
      */
     UserDto login(UserDto userDto);
+
+    /**
+     * 用户注册
+     * @param userDto 用户注册请求对象
+     */
+    void register(UserDto userDto);
 }

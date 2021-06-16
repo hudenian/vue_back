@@ -11,5 +11,4 @@
   <sql id="Base_Column_List">
     id, parent_id, `name`, create_time, update_time
   </sql>
-
 </mapper>

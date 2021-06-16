@@ -19,7 +19,7 @@ public class UserDto {
     /**
      * 用户名
      */
-    private String userName;
+    private String name;
 
     /**
      * 密码
@@ -49,7 +49,7 @@ public class UserDto {
     /**
      * 性别 0男 1女
      */
-    private String sex;
+    private Byte sex;
 
     /**
      * 描述
