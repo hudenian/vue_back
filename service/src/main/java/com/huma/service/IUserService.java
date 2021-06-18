@@ -7,7 +7,7 @@ import com.huma.mapper.domain.User;
 
 /**
  * @author hudenian
- * @date 2021/6/11
+ * @date 2021/6/12
  */
 public interface IUserService extends IService<User> {
 
