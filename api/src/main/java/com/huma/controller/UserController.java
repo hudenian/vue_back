@@ -65,6 +65,9 @@ public class UserController {
         List<UserVo> userAuthVoList =
                 BeanCopyUtil.copyListProperties(servicePage.getRecords(), UserVo::new);
         controlPage.setItems(userAuthVoList);
+        controlPage.setCurrent(servicePage.getCurrent());
+        controlPage.setSize(servicePage.getSize());
+        controlPage.setTotal(servicePage.getTotal());
         return ResponseVo.createSuccess(controlPage);
     }
 

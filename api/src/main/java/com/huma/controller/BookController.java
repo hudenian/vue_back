@@ -92,8 +92,8 @@ public class BookController {
         });
         pageVo.setItems(bookVoList);
         pageVo.setTotal(bookDtoPageDto.getTotal());
-        pageVo.setCurrent(bookDtoPageDto.getCurrent().intValue());
-        pageVo.setSize(bookDtoPageDto.getSize().intValue());
+        pageVo.setCurrent(bookDtoPageDto.getCurrent());
+        pageVo.setSize(bookDtoPageDto.getSize());
         return pageVo;
     }
 }

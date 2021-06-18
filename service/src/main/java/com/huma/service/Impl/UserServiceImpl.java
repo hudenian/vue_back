@@ -82,8 +82,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (StringUtil.isNotEmpty(name)) {
             wrapper.like(User::getName, name);
         }
-        this.baseMapper.selectPage(page, wrapper);
-        return convertToPageDto(page);
+        IPage<User> iPage = this.baseMapper.selectPage(page, wrapper);
+        return convertToPageDto(iPage);
     }
 
     private User getUser(String name) {

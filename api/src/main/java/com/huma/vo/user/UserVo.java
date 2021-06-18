@@ -28,7 +28,7 @@ public class UserVo {
     @ApiModelProperty("头像")
     private String avatar;
 
-    @ApiModelProperty("手机")
+    @ApiModelProperty("手机号")
     private String phone;
 
     @ApiModelProperty("性别 0男 1女")
@@ -41,6 +41,7 @@ public class UserVo {
     private Byte status;
 
     @ApiModelProperty("创建时间")
+    @JsonFormat(pattern = SysConstant.DEFAULT_TIME_PATTERN, timezone = SysConstant.DEFAULT_TIMEZONE)
     private Date createTime;
 
     @ApiModelProperty("注册时间")

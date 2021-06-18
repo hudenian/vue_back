@@ -25,13 +25,13 @@ public class PageVo<T> {
      * 页码
      */
     @ApiModelProperty("当前页")
-    private Integer current;
+    private Long current;
 
     /**
      * 每页大小
      */
     @ApiModelProperty("每页条数")
-    private Integer size;
+    private Long size;
 
     /**
      * 查询结果
