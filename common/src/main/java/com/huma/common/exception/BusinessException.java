@@ -1,8 +1,6 @@
 package com.huma.common.exception;
 
-import com.huma.common.constants.SysConstant;
 import com.huma.common.enums.RespCodeEnum;
-import com.huma.common.utils.LanguageContext;
 
 /**
  * @author hudenian
@@ -11,6 +9,7 @@ import com.huma.common.utils.LanguageContext;
 public class BusinessException extends RuntimeException {
     private int code;
     private String msg;
+    private String msgEnglish;
 
     public BusinessException() {
         super();
@@ -25,19 +24,22 @@ public class BusinessException extends RuntimeException {
     public BusinessException(int code, String msg, String msgEnglish) {
         super(msg);
         this.code = code;
-        this.msg = SysConstant.EN_US.equals(LanguageContext.get()) ? msgEnglish : msg;
+        this.msg = msg;
+        this.msg = msgEnglish;
     }
 
     public BusinessException(RespCodeEnum responseEnum) {
         super(responseEnum.getMsg());
         this.code = responseEnum.getCode();
-        this.msg = SysConstant.EN_US.equals(LanguageContext.get()) ? responseEnum.getMsg() : responseEnum.getMsgEnglish();
+        this.msg = responseEnum.getMsg();
+        this.msgEnglish = responseEnum.getMsgEnglish();
     }
 
     public BusinessException(RespCodeEnum responseEnum, String msg, String msgEnglish) {
         super(msg);
         this.code = responseEnum.getCode();
-        this.msg = SysConstant.EN_US.equals(LanguageContext.get()) ? msgEnglish : msg;
+        this.msg = msg;
+        this.msgEnglish = msgEnglish;
     }
 
     public BusinessException(RespCodeEnum responseEnum, String msg) {
@@ -52,6 +54,10 @@ public class BusinessException extends RuntimeException {
 
     public String getMsg() {
         return msg;
+    }
+
+    public String getMsgEnglish() {
+        return msgEnglish;
     }
 
 }

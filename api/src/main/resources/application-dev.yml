@@ -56,3 +56,14 @@ system:
     sqlFilepath: classpath:sql/vue_back.sql
     # 登录互踢模式： true-是,false-否
     kickMode: false
+  mail:
+    #邮件服务器
+    mailHost: smtp.163.com
+    #发件人
+    mailUser: hudenian@163.com
+    #发件人邮箱授权码（邮箱密码）
+    mailPwd: SXDRTMJXQEHIYAAY
+    #发件人地址
+    mailFrom: hudenian@163.com
+    #收件人地址,多个地址以";"分隔
+    mailTo: 359553165@qq.com;359553164@qq.com

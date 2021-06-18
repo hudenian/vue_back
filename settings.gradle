@@ -4,4 +4,6 @@ include 'service'
 include 'common'
 include 'mapper'
 include 'elasticsearch'
+include 'task'
+include 'mail'
 

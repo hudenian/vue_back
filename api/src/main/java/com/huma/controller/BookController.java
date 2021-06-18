@@ -68,8 +68,8 @@ public class BookController {
     @ApiOperation(value = "根据图书名称分页查找", notes = "根据图书名称分页查找")
     public ResponseVo<PageVo<BookVo>> pageFindByBookName(@RequestBody @Valid BookPageQueryReq bookPageQueryReq) {
         BookDto bookDto = new BookDto();
-        bookDto.setPageNum(bookPageQueryReq.getPageNum());
-        bookDto.setPageSize(bookPageQueryReq.getPageSize());
+        bookDto.setPageNum(bookPageQueryReq.getPageNum().longValue());
+        bookDto.setPageSize(bookPageQueryReq.getPageSize().longValue());
         bookDto.setBookName(bookPageQueryReq.getBookName());
         PageDto<BookDto> bookDtoPageDto = bookService.pageFindByBookName(bookDto);
 
@@ -92,8 +92,8 @@ public class BookController {
         });
         pageVo.setItems(bookVoList);
         pageVo.setTotal(bookDtoPageDto.getTotal());
-        pageVo.setCurrent(bookDtoPageDto.getCurrent());
-        pageVo.setSize(bookDtoPageDto.getSize());
+        pageVo.setCurrent(bookDtoPageDto.getCurrent().intValue());
+        pageVo.setSize(bookDtoPageDto.getSize().intValue());
         return pageVo;
     }
 }

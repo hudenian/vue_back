@@ -8,6 +8,6 @@ import lombok.Data;
  */
 @Data
 public class BasePageDto {
-    private Integer pageNum = 1;
-    private Integer pageSize = 10;
+    private Long pageNum = 1L;
+    private Long pageSize = 10L;
 }

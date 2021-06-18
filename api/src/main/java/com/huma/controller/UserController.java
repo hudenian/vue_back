@@ -1,9 +1,13 @@
 package com.huma.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.huma.common.utils.BeanCopyUtil;
 import com.huma.dto.UserDto;
 import com.huma.req.user.LoginReq;
 import com.huma.req.user.RegisterReq;
+import com.huma.req.user.UserPageReq;
 import com.huma.service.IUserService;
+import com.huma.vo.PageVo;
 import com.huma.vo.ResponseVo;
 import com.huma.vo.user.UserVo;
 import io.swagger.annotations.Api;
@@ -11,13 +15,11 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author hudenian
@@ -52,4 +54,18 @@ public class UserController {
         BeanUtils.copyProperties(userDto, userVo);
         return ResponseVo.createSuccess(userVo);
     }
+
+    @GetMapping("userList")
+    @ApiOperation(value = "用户列表", notes = "用户列表")
+    public ResponseVo<PageVo<UserVo>> userAuthList(@Valid UserPageReq userPageReq) {
+        IPage<UserDto> servicePage = userService.userPageList(userPageReq.getPageNum(), userPageReq.getPageSize(), userPageReq.getName());
+
+        PageVo<UserVo> controlPage = new PageVo<>();
+        BeanCopyUtil.copyProperties(servicePage, controlPage);
+        List<UserVo> userAuthVoList =
+                BeanCopyUtil.copyListProperties(servicePage.getRecords(), UserVo::new);
+        controlPage.setItems(userAuthVoList);
+        return ResponseVo.createSuccess(controlPage);
+    }
+
 }

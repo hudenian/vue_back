@@ -18,12 +18,12 @@ public class PageDto<T> {
     /**
      * 页码
      */
-    private Integer current;
+    private Long current;
 
     /**
      * 每页大小
      */
-    private Integer size;
+    private Long size;
 
     /**
      * 查询结果

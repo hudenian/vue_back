@@ -1,0 +1,13 @@
+jar {
+    enabled = true
+}
+
+bootJar{
+    enabled =true
+}
+
+dependencies {
+    api project(':common')
+    api group: 'org.apache.commons', name: 'commons-email', version: '1.5'
+
+}

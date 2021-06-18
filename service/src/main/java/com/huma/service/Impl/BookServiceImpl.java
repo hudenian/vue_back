@@ -59,7 +59,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public PageDto<BookDto> pageFindByBookName(BookDto bookDto) {
-        Pageable pageable = PageRequest.of(bookDto.getPageNum() - 1, bookDto.getPageSize());
+        Pageable pageable = PageRequest.of(bookDto.getPageNum().intValue() - 1, bookDto.getPageSize().intValue());
         Page<Book> bookPage = bookRepository.findByBookNameContaining(bookDto.getBookName(), pageable);
         List<BookDto> bookDtoList = BeanCopyUtil.copyListProperties(bookPage.getContent(), BookDto::new);
 
@@ -76,7 +76,7 @@ public class BookServiceImpl implements BookService {
      */
     @Override
     public Object singleTitle(String word, BookDto bookDto) {
-        Pageable pageable = PageRequest.of(bookDto.getPageNum() - 1, bookDto.getPageSize());
+        Pageable pageable = PageRequest.of(bookDto.getPageNum().intValue() - 1, bookDto.getPageSize().intValue());
         //使用queryStringQuery完成单字符串查询
         Query query = new NativeSearchQueryBuilder().withQuery(QueryBuilders.queryStringQuery(word).defaultField("bookName")).withPageable(pageable)
                 .withSort(SortBuilders.fieldSort("id").order(SortOrder.DESC)).withHighlightFields(new HighlightBuilder.Field(word))

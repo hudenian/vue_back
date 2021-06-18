@@ -16,15 +16,36 @@ import java.util.Date;
 @ApiModel
 public class UserVo {
 
-    @ApiModelProperty("用户id")
+    @ApiModelProperty("用户主键ID")
     private Long id;
 
-    @ApiModelProperty("手机号码")
+    @ApiModelProperty("用户名")
     private String name;
+
+    @ApiModelProperty("部门ID")
+    private Long deptId;
+
+    @ApiModelProperty("头像")
+    private String avatar;
+
+    @ApiModelProperty("手机")
+    private String phone;
+
+    @ApiModelProperty("性别 0男 1女")
+    private Byte sex;
+
+    @ApiModelProperty("描述")
+    private String description;
+
+    @ApiModelProperty("状态 0锁定 1有效")
+    private Byte status;
+
+    @ApiModelProperty("创建时间")
+    private Date createTime;
 
     @ApiModelProperty("注册时间")
     @JsonFormat(pattern = SysConstant.DEFAULT_TIME_PATTERN, timezone = SysConstant.DEFAULT_TIMEZONE)
-    private Date createTime;
+    private Date updateTime;
 
     @ApiModelProperty("用户登录token")
     private String token;

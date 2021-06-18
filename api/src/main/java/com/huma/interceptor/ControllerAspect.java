@@ -1,7 +1,9 @@
 package com.huma.interceptor;
 
+import com.huma.common.constants.SysConstant;
 import com.huma.common.enums.RespCodeEnum;
 import com.huma.common.exception.BusinessException;
+import com.huma.common.utils.LanguageContext;
 import com.huma.vo.ResponseVo;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -58,9 +60,9 @@ public class ControllerAspect {
         try {
             returnObj = pjp.proceed(args);
         } catch (BusinessException e) {
-            log.warn("A biz exception occurred on the request. Error message: " + e.getMsg());
+            log.warn("A biz exception occurred on the request. Error message: " + (SysConstant.EN_US.equals(LanguageContext.get()) ? e.getMsgEnglish() : e.getMsg()));
 
-            returnObj = ResponseVo.create(e.getCode(), e.getMsg(),e.getMsg());
+            returnObj = ResponseVo.create(e.getCode(), e.getMsg(),e.getMsgEnglish());
         } catch (Throwable e) {
             log.error("An exception occurred on the request.", e);
 
