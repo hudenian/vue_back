@@ -51,4 +51,9 @@ public class SysConstant {
      * 国际化英文
      */
     public static final String EN_US= "en-US";
+
+    /**
+     * 添加用户默认密码
+     */
+    public static final String INIT_PASSWORD = "123456";
 }

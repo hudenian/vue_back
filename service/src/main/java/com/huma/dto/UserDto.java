@@ -62,7 +62,7 @@ public class UserDto implements Serializable {
     /**
      * 状态 0锁定 1有效
      */
-    private Boolean status;
+    private Byte status;
 
     /**
      * 创建时间

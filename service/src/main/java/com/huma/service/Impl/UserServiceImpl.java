@@ -1,12 +1,14 @@
 package com.huma.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huma.common.constants.ErrorMsgEnUs;
 import com.huma.common.constants.ErrorMsgZhCn;
+import com.huma.common.constants.SysConstant;
 import com.huma.common.enums.RespCodeEnum;
 import com.huma.common.enums.StatEnum;
 import com.huma.common.exception.BusinessException;
@@ -55,6 +57,52 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public void register(UserDto userDto) {
+        createUser(userDto);
+    }
+
+    @Override
+    public IPage<UserDto> userPageList(Long pageNum, Long pageSize, String name) {
+        IPage<User> page = new Page<>(pageNum, pageSize);
+        LambdaQueryWrapper<User> wrapper = Wrappers.lambdaQuery();
+        if (StringUtil.isNotEmpty(name)) {
+            wrapper.like(User::getName, name);
+        }
+        IPage<User> iPage = this.baseMapper.selectPage(page, wrapper);
+        return convertToPageDto(iPage);
+    }
+
+    @Override
+    public void add(UserDto userDto) {
+        String passMd5First = DigestUtils.md5Hex(SysConstant.INIT_PASSWORD);
+        String passMd5Second = DigestUtils.md5Hex(passMd5First + userDto.getName());
+        userDto.setPassword(passMd5Second);
+        createUser(userDto);
+    }
+
+    @Override
+    public UserDto getUserById(Long id) {
+        UserDto userDto = new UserDto();
+        User user = this.baseMapper.selectById(id);
+        BeanUtils.copyProperties(user, userDto);
+        return userDto;
+    }
+
+    @Override
+    public void modify(Long id, String phone) {
+        LambdaUpdateWrapper<User> updateWrapper = Wrappers.lambdaUpdate();
+        updateWrapper.set(User::getPhone,phone);
+        updateWrapper.eq(User::getId,id);
+        if(!this.update(updateWrapper)){
+            throw new BusinessException(RespCodeEnum.BIZ_FAILED, ErrorMsgZhCn.USER_MODIFY_ERROR, ErrorMsgEnUs.USER_MODIFY_ERROR);
+        }
+    }
+
+    @Override
+    public void delete(Long id) {
+        this.baseMapper.deleteById(id);
+    }
+
+    private void createUser(UserDto userDto) {
         User user = new User();
         user.setName(userDto.getName());
 
@@ -73,17 +121,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             log.error("User registration failed.", e);
             throw new BusinessException(RespCodeEnum.BIZ_FAILED, ErrorMsgZhCn.USER_REGISTER_FAILED, ErrorMsgEnUs.USER_REGISTER_FAILED);
         }
-    }
-
-    @Override
-    public IPage<UserDto> userPageList(Long pageNum, Long pageSize, String name) {
-        IPage<User> page = new Page<>(pageNum, pageSize);
-        LambdaQueryWrapper<User> wrapper = Wrappers.lambdaQuery();
-        if (StringUtil.isNotEmpty(name)) {
-            wrapper.like(User::getName, name);
-        }
-        IPage<User> iPage = this.baseMapper.selectPage(page, wrapper);
-        return convertToPageDto(iPage);
     }
 
     private User getUser(String name) {
