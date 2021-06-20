@@ -34,6 +34,11 @@ public class PermissionController {
     @ApiOperation(value = "获取所有目录菜单树接口", notes = "获取所有目录菜单树接口")
     public ResponseVo<List<PermissionVo>> getAllMenus() {
         List<PermissionDto> permissionDtoList = permissionService.getAllMenus();
+        List<PermissionVo> permissionVoList = getPermissionVoList(permissionDtoList);
+        return ResponseVo.createSuccess(permissionVoList);
+    }
+
+    private List<PermissionVo> getPermissionVoList(List<PermissionDto> permissionDtoList) {
         List<PermissionVo> permissionVoList = new ArrayList<>();
         permissionDtoList.forEach(permissionDto -> {
             PermissionVo p = new PermissionVo();
@@ -44,9 +49,19 @@ public class PermissionController {
             p.setType(permissionDto.getType());
             p.setIcon(permissionDto.getIcon());
             p.setSeqNo(permissionDto.getSeqNo());
-            p.setChildren(dtoToVo(permissionDto.getChildren()));
+            if (null != permissionDto.getChildren()) {
+                p.setChildren(dtoToVo(permissionDto.getChildren()));
+            }
             permissionVoList.add(p);
         });
+        return permissionVoList;
+    }
+
+    @GetMapping("/getAllPermissions")
+    @ApiOperation(value = "获取所有菜单权限接口", notes = "获取所有菜单权限接口")
+    public ResponseVo<List<PermissionVo>> getAllPermissions() {
+        List<PermissionDto> permissionDtoList = permissionService.getAllPermissions();
+        List<PermissionVo> permissionVoList = getPermissionVoList(permissionDtoList);
         return ResponseVo.createSuccess(permissionVoList);
     }
 

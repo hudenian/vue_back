@@ -3,6 +3,7 @@ package com.huma.service.Impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.huma.common.utils.BeanCopyUtil;
 import com.huma.dto.PermissionDto;
 import com.huma.common.enums.PermissionTypeEnum;
 import com.huma.mapper.PermissionMapper;
@@ -44,6 +45,12 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
             }
         }
         return permissionDtoList;
+    }
+
+    @Override
+    public List<PermissionDto> getAllPermissions() {
+        List<Permission> permissionList = this.list();
+        return BeanCopyUtil.copyListProperties(permissionList, PermissionDto::new);
     }
 
     /**

@@ -17,4 +17,10 @@ public interface IPermissionService extends IService<Permission> {
      * @return 菜单列表
      */
     List<PermissionDto> getAllMenus();
+    /**
+     * 获取所有菜单权限
+     *
+     * @return 菜单列表
+     */
+    List<PermissionDto> getAllPermissions();
 }
