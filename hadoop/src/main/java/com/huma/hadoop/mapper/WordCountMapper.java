@@ -22,7 +22,7 @@ public class WordCountMapper extends Mapper<Object, Text, Text, IntWritable> {
         byte[] bt = value.getBytes();
         InputStream ip = new ByteArrayInputStream(bt);
         Reader read = new InputStreamReader(ip);
-        IKSegmenter iks = new IKSegmenter(read,true);
+        IKSegmenter iks = new IKSegmenter(read,false);
         Lexeme t;
         while ((t = iks.next()) != null)
         {
