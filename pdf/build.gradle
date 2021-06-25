@@ -1,0 +1,13 @@
+jar {
+    enabled = true
+}
+
+bootJar {
+    enabled = false
+}
+
+dependencies {
+    api project(':common')
+    api group: 'com.itextpdf', name: 'itextpdf', version: '5.5.10'
+    api group: 'com.itextpdf', name: 'itext-asian', version: '5.2.0'
+}
