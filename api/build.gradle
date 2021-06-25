@@ -8,6 +8,7 @@ bootJar {
 
 dependencies {
     api project(':service')
+    api project(':pdf')
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 

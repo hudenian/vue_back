@@ -7,4 +7,5 @@ include 'elasticsearch'
 include 'task'
 include 'mail'
 include 'hadoop'
+include 'pdf'
 

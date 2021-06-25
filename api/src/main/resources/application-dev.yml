@@ -56,6 +56,8 @@ system:
     sqlFilepath: classpath:sql/vue_back.sql
     # 登录互踢模式： true-是,false-否
     kickMode: false
+    # 证书模版文件
+    certificateTemplatePath: classpath:template/certificateTemplate.pdf
   mail:
     #邮件服务器
     mailHost: smtp.163.com
