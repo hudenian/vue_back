@@ -3,7 +3,6 @@ plugins {
 }
 
 bootJar {
-    archiveBaseName = "api"
     enabled = true
 }
 

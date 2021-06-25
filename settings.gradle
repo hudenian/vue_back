@@ -6,4 +6,5 @@ include 'mapper'
 include 'elasticsearch'
 include 'task'
 include 'mail'
+include 'hadoop'
 

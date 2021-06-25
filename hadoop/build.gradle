@@ -1,0 +1,13 @@
+jar {
+    enabled = true
+}
+
+bootJar {
+    enabled = false
+}
+
+dependencies {
+    api project(':common')
+    api group: 'org.apache.hadoop', name: 'hadoop-client', version: '3.1.1'
+    implementation group: 'junit', name: 'junit', version: '4.12'
+}
