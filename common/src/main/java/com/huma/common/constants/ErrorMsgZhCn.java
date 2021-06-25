@@ -13,4 +13,5 @@ public class ErrorMsgZhCn {
     public static final String USER_REGISTER_FAILED = "用户注册失败";
     public static final String USER_OR_PASSWORD_ERROR = "用户或者密码错误";
     public static final String PDF_DOWNLOAD_ERROR = "证书下载错误";
+    public static final String USER_MODIFY_ERROR = "用户信息修改失败";
 }

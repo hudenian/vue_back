@@ -13,4 +13,5 @@ public class ErrorMsgEnUs {
     public static final String USER_REGISTER_FAILED = "User register fail";
     public static final String USER_OR_PASSWORD_ERROR = "User name or password error";
     public static final String PDF_DOWNLOAD_ERROR = "Pdf downLoad error";
+    public static final String USER_MODIFY_ERROR = "User modify error";
 }
