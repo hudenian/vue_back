@@ -44,10 +44,12 @@ public class PermissionController {
             PermissionVo p = new PermissionVo();
             p.setId(permissionDto.getId());
             p.setParentId(permissionDto.getParentId());
+            p.setParentName(permissionDto.getParentName());
             p.setName(permissionDto.getName());
             p.setUrl(permissionDto.getUrl());
             p.setType(permissionDto.getType());
             p.setIcon(permissionDto.getIcon());
+            p.setStatus(permissionDto.getStatus());
             p.setSeqNo(permissionDto.getSeqNo());
             if (null != permissionDto.getChildren()) {
                 p.setChildren(dtoToVo(permissionDto.getChildren()));

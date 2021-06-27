@@ -23,6 +23,11 @@ public class PermissionDto {
     private Long parentId;
 
     /**
+     * 父级菜单名称
+     */
+    private String parentName;
+
+    /**
      * 权限名称
      */
     private String name;
@@ -40,7 +45,7 @@ public class PermissionDto {
     /**
      * 菜单权限类型: 1-目录, 2-菜单, 3-按钮
      */
-    private String type;
+    private Byte type;
 
     /**
      * 菜单图标
@@ -55,7 +60,7 @@ public class PermissionDto {
     /**
      * 状态 0锁定 1有效
      */
-    private Boolean status;
+    private Byte status;
 
     /**
      * 创建时间

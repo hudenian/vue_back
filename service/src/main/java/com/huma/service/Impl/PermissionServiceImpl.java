@@ -14,7 +14,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author hudenian
@@ -50,7 +52,15 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     @Override
     public List<PermissionDto> getAllPermissions() {
         List<Permission> permissionList = this.list();
-        return BeanCopyUtil.copyListProperties(permissionList, PermissionDto::new);
+        List<PermissionDto> permissionDtoList = BeanCopyUtil.copyListProperties(permissionList, PermissionDto::new);
+        Map<Long, String> menus = new HashMap<>(permissionList.size());
+        permissionList.forEach(p -> {
+            if (PermissionTypeEnum.DIRECTORY.getCode() == p.getType()) {
+                menus.put(p.getId(), p.getName());
+            }
+        });
+        permissionDtoList.forEach(item -> item.setParentName(menus.get(item.getParentId())));
+        return permissionDtoList;
     }
 
     /**

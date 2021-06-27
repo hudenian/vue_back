@@ -20,6 +20,9 @@ public class PermissionVo {
     @ApiModelProperty("父级ID")
     private Long parentId;
 
+    @ApiModelProperty("父级菜单名称")
+    private String parentName;
+
     @ApiModelProperty("权限名称")
     private String name;
 
@@ -30,7 +33,7 @@ public class PermissionVo {
     private String perms;
 
     @ApiModelProperty("菜单权限类型: 1-目录, 2-菜单, 3-按钮")
-    private String type;
+    private Byte type;
 
     @ApiModelProperty("菜单图标")
     private String icon;
@@ -39,7 +42,7 @@ public class PermissionVo {
     private Long seqNo;
 
     @ApiModelProperty("状态 0锁定 1有效")
-    private Boolean status;
+    private Byte status;
 
     @ApiModelProperty("创建时间")
     private Date createTime;
