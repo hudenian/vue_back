@@ -1,23 +1,19 @@
-package com.huma.dto;
+package com.huma.mapper.query;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author hudenian
- * @date 2021/6/11
+ * @date 2021/7/2
  */
 @Data
-public class RoleDto {
-
+public class RoleWithPermission implements Serializable {
     /**
      * 角色ID
      */
-    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -46,7 +42,10 @@ public class RoleDto {
     private Date updateTime;
 
     /**
-     * 角色所拥有的权限
+     * 角色对应权限列表
      */
-    private List<PermissionDto> children;
+    private String permissions;
+
+    private static final long serialVersionUID = 1L;
+
 }

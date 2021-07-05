@@ -2,11 +2,13 @@ package com.huma.vo.role;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.huma.dto.PermissionDto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author hudenian
@@ -33,4 +35,7 @@ public class RoleVo {
 
     @ApiModelProperty("修改时间")
     private Date updateTime;
+
+    @ApiModelProperty("角色所拥有的权限")
+    private List<PermissionDto> children;
 }
